@@ -1,0 +1,1 @@
+CREATE ASSERTION LimitedByStock CHECK ( NOT EXISTS (select order_id,product_id from public."Order Lines" where quantity <= (select stock from public."Products" where id = product_id)));
